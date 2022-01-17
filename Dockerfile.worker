@@ -1,8 +1,8 @@
 FROM redash/redash:10.1.0.b50633
 
 ENV WORKERS_COUNT=${WORKERS_COUNT:-1}
-ENV QUEUES=${QUEUES:-celery}
+ENV QUEUES=${QUEUES:-"periodic emails default"}
 
 WORKDIR /app
 
-CMD /usr/local/bin/celery worker --app=redash.worker --beat -c$WORKERS_COUNT -Q$QUEUES -linfo --maxtasksperchild=10 -Ofair
+CMD worker
