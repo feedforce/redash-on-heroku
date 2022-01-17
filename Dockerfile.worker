@@ -5,4 +5,4 @@ ENV QUEUES=${QUEUES:-"periodic emails default"}
 
 WORKDIR /app
 
-CMD worker
+CMD /app/bin/docker-entrypoint worker
