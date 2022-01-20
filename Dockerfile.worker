@@ -3,5 +3,6 @@ FROM redash/redash:10.1.0.b50633
 ENV WORKERS_COUNT=${WORKERS_COUNT:-1}
 
 WORKDIR /app
+COPY ./worker-scheduler.conf .
 
-CMD /app/bin/docker-entrypoint worker
+CMD supervisord -c worker-scheduler.conf

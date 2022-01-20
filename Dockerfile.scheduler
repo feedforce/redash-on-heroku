@@ -1,5 +1,0 @@
-FROM redash/redash:10.1.0.b50633
-
-WORKDIR /app
-
-CMD /app/bin/docker-entrypoint scheduler
